@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: demo-api
-    app.kubernetes.io/component: demo-api
-    app.kubernetes.io/instance: demo-api
+    # app.kubernetes.io/component: demo-api
+    # app.kubernetes.io/instance: demo-api
   name: demo-api
   namespace: dev-demo-api
 spec:
@@ -19,11 +19,11 @@ spec:
   #     maxSurge: 25%
   #     maxUnavailable: 25%
   #   type: RollingUpdate
-  # template:
-  #   metadata:
-  #     name: demo-api_load_cm
-  #     labels:
-  #       deployment: demo-api
+  template:
+    metadata:
+      name: demo-api_load_cm
+      labels:
+        deployment: demo-api
     spec:
       containers:
       - image: <PATCH_ME>
