@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: webportal-v4-admin-microservice
-    app.kubernetes.io/component: webportal-v4-admin-microservice
-    app.kubernetes.io/instance: webportal-v4-admin-microservice
-  name: webportal-v4-admin-microservice
+    app: demo-api
+    app.kubernetes.io/component: demo-api
+    app.kubernetes.io/instance: demo-api
+  name: demo-api
   
 spec:
   ports:
   - port: 8080
   selector:
-    deployment: webportal-v4-admin-microservice
+    deployment: demo-api

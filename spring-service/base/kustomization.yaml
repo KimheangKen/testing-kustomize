@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
 - ./Deployment.yaml
 - ./svc.yaml
-- ./route.yaml
-- ./cm.yaml
-- ./secret.yaml
+# - ./route.yaml
+# - ./cm.yaml
+# - ./secret.yaml

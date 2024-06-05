@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webportal-v4-admin-microservice
-  namespace: dev-old-dmb
+  name: demo-api
+  namespace: dev-demo-api
 spec:
   template:
     spec:
       containers:
-      - name: webportal-v4-admin-microservice
-        image: private-openshift-image-registry.kbprasac.com.kh:5000/dev-webportal-v4-admin-service:96a10e8be9b987f5297110b318a1cc4138219c8f
+      - name: demo-api
+        image: kimheang68/demo-api:13

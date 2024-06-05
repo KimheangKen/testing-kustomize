@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: webportal-v4-admin-microservice
-    app.kubernetes.io/component: webportal-v4-admin-microservice
-    app.kubernetes.io/instance: webportal-v4-admin-microservice
-  name: webportal-v4-admin-microservice
-  namespace: dev-old-dmb
+    app: demo-api
+    app.kubernetes.io/component: demo-api
+    app.kubernetes.io/instance: demo-api
+  name: demo-api
+  namespace: dev-demo-api
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      deployment: webportal-v4-admin-microservice
+      deployment: demo-api
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,21 +21,21 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      name: webportal-v4-admin-microservice_load_cm
+      name: demo-api_load_cm
       labels:
-        deployment: webportal-v4-admin-microservice
+        deployment: demo-api
     spec:
       containers:
       - image: <PATCH_ME>
         imagePullPolicy: IfNotPresent
-        name: webportal-v4-admin-microservice
+        name: demo-api
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         envFrom:
           - configMapRef:
-              name: webportal-v4-admin-microservice-cm
+              name: demo-api-cm
           - secretRef:
-              name: webportal-v4-admin-microservice-secret
+              name: demo-api-secret
       imagePullSecrets:
       - name: private-docker-registry
       dnsPolicy: ClusterFirst
