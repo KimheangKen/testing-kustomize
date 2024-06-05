@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: webportal-v4-admin-microservice-cm
+  namespace: dev-old-dmb
+data:
+  ACCOUNT_SERVICE_URL: 'https://mbs-account-service-prd-dmb.apps.ocp-prd.kbprasacbank.com.kh/mas'
+  NOTIFICATION_SERVICE_URL: 'https://mbs-notification-service-prd-dmb.apps.ocp-prd.kbprasacbank.com.kh/mns'

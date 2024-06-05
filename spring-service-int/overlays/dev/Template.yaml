@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-api
+  namespace: dev-demo-api
+spec:
+  template:
+    spec:
+      containers:
+      - name: demo-api
+        image: kimheang68/demo-api:${IMAGE_TAG}

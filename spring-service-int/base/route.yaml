@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: webportal-v4-admin-microservice
+    app.kubernetes.io/component: webportal-v4-admin-microservice
+    app.kubernetes.io/instance: webportal-v4-admin-microservice
+  name: webportal-v4-admin-microservice
+  
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  to:
+    kind: Service
+    name: webportal-v4-admin-microservice
+    weight: 100
+  wildcardPolicy: None
