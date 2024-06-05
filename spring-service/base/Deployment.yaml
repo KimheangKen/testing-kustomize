@@ -8,37 +8,37 @@ metadata:
   name: demo-api
   namespace: dev-demo-api
 spec:
-  progressDeadlineSeconds: 600
+  # progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
+  # revisionHistoryLimit: 10
   selector:
     matchLabels:
       deployment: demo-api
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      name: demo-api_load_cm
-      labels:
-        deployment: demo-api
+  # strategy:
+  #   rollingUpdate:
+  #     maxSurge: 25%
+  #     maxUnavailable: 25%
+  #   type: RollingUpdate
+  # template:
+  #   metadata:
+  #     name: demo-api_load_cm
+  #     labels:
+  #       deployment: demo-api
     spec:
       containers:
       - image: <PATCH_ME>
         imagePullPolicy: IfNotPresent
         name: demo-api
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        envFrom:
-          - configMapRef:
-              name: demo-api-cm
-          - secretRef:
-              name: demo-api-secret
-      imagePullSecrets:
-      - name: private-docker-registry
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      terminationGracePeriodSeconds: 30
+        # terminationMessagePath: /dev/termination-log
+        # terminationMessagePolicy: File
+        # envFrom:
+        #   - configMapRef:
+        #       name: demo-api-cm
+        #   - secretRef:
+        #       name: demo-api-secret
+      # imagePullSecrets:
+      # - name: private-docker-registry
+      # dnsPolicy: ClusterFirst
+      # restartPolicy: Always
+      # schedulerName: default-scheduler
+      # terminationGracePeriodSeconds: 30
