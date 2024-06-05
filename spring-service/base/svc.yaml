@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: demo-api
-    # app.kubernetes.io/component: demo-api
-    # app.kubernetes.io/instance: demo-api
-  name: demo-api
+    app: demo-api-int
+    # app.kubernetes.io/component: demo-api-int
+    # app.kubernetes.io/instance: demo-api-int
+  name: demo-api-int
   
 spec:
   ports:
   - port: 8080
   selector:
-    deployment: demo-api
+    deployment: demo-api-int

@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: demo-api
-    # app.kubernetes.io/component: demo-api
-    # app.kubernetes.io/instance: demo-api
-  name: demo-api
-  namespace: dev-demo-api
+    app: demo-api-int-int
+    # app.kubernetes.io/component: demo-api-int
+    # app.kubernetes.io/instance: demo-api-int
+  name: demo-api-int
+  namespace: dev-demo-api-int
 spec:
   # progressDeadlineSeconds: 600
   replicas: 1
   # revisionHistoryLimit: 10
   selector:
     matchLabels:
-      deployment: demo-api
+      deployment: demo-api-int
   # strategy:
   #   rollingUpdate:
   #     maxSurge: 25%
@@ -21,21 +21,21 @@ spec:
   #   type: RollingUpdate
   template:
     metadata:
-      name: demo-api_load_cm
+      name: demo-api-int_load_cm
       labels:
-        deployment: demo-api
+        deployment: demo-api-int
     spec:
       containers:
       - image: <PATCH_ME>
         imagePullPolicy: IfNotPresent
-        name: demo-api
+        name: demo-api-int
         # terminationMessagePath: /dev/termination-log
         # terminationMessagePolicy: File
         # envFrom:
         #   - configMapRef:
-        #       name: demo-api-cm
+        #       name: demo-api-int-cm
         #   - secretRef:
-        #       name: demo-api-secret
+        #       name: demo-api-int-secret
       # imagePullSecrets:
       # - name: private-docker-registry
       # dnsPolicy: ClusterFirst
